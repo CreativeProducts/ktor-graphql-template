@@ -14,16 +14,13 @@
  * limitations under the License.
  */
 
-package com.accenture.creativeproducts.examples.server.schema
+package com.accenture.creativeproducts.examples.server.schema.query
 
-import com.accenture.creativeproducts.examples.server.schema.models.University
+import com.accenture.creativeproducts.examples.server.schema.models.Course
 import com.expediagroup.graphql.server.operations.Query
-import graphql.GraphQLException
 
-class UniversityQueryService : Query {
-    @Throws(GraphQLException::class)
-    suspend fun searchUniversities(params: UniversitySearchParameters): List<University> =
-        University.search(params.ids)
+class CourseQueryService : Query {
+    fun searchCourses(params: CourseSearchParameters) = Course.search(params.ids)
 }
 
-data class UniversitySearchParameters(val ids: List<Int>)
+data class CourseSearchParameters(val ids: List<Int>)

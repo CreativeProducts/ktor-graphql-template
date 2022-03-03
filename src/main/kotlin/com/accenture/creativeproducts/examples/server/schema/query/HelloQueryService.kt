@@ -14,13 +14,10 @@
  * limitations under the License.
  */
 
-package com.accenture.creativeproducts.examples.server.schema
+package com.accenture.creativeproducts.examples.server.schema.query
 
-import com.accenture.creativeproducts.examples.server.schema.models.Course
 import com.expediagroup.graphql.server.operations.Query
 
-class CourseQueryService : Query {
-    fun searchCourses(params: CourseSearchParameters) = Course.search(params.ids)
+class HelloQueryService : Query {
+    fun hello() = "World!"
 }
-
-data class CourseSearchParameters(val ids: List<Int>)

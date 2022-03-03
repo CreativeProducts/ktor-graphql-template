@@ -16,11 +16,12 @@
 
 package com.accenture.creativeproducts.examples.server
 
-import com.accenture.creativeproducts.examples.server.schema.*
+import com.accenture.creativeproducts.examples.server.schema.query.*
 import com.expediagroup.graphql.generator.SchemaGeneratorConfig
 import com.expediagroup.graphql.generator.TopLevelObject
 import com.expediagroup.graphql.generator.toSchema
 import graphql.GraphQL
+import org.koin.dsl.module
 
 /**
  * Custom logic for how this Ktor server loads all the queries and configuration to create the [GraphQL] object
@@ -35,6 +36,10 @@ private val queries = listOf(
     TopLevelObject(UniversityQueryService())
 )
 private val mutations = listOf(TopLevelObject(LoginMutationService()))
-val graphQLSchema = toSchema(config, queries, mutations)
+private val graphQLSchema = toSchema(config, queries, mutations)
 
-fun getGraphQLObject(): GraphQL = GraphQL.newGraphQL(graphQLSchema).build()
+val KtorGraphQLSchemaModule = module {
+    single {
+        GraphQL.newGraphQL(graphQLSchema).build()
+    }
+}

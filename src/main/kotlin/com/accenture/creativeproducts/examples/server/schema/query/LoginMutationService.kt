@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.accenture.creativeproducts.examples.server.schema
+package com.accenture.creativeproducts.examples.server.schema.query
 
 import com.accenture.creativeproducts.examples.server.schema.models.User
 import com.expediagroup.graphql.server.operations.Mutation
@@ -22,7 +22,7 @@ import com.expediagroup.graphql.server.operations.Mutation
 data class AuthPayload(val token: String? = null, val user: User? = null)
 
 class LoginMutationService : Mutation {
-    suspend fun login(email: String, password: String, aliasUUID: String?): AuthPayload {
+    suspend fun login(email: String, password: String): AuthPayload {
         val token = "fake-token"
         val user = User(
             email = "fake@site.com",

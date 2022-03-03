@@ -9,7 +9,8 @@ import org.dataloader.DataLoaderRegistry
 /**
  * Example of how to register the various DataLoaders using [DataLoaderRegistryFactory]
  */
-class KtorDataLoaderRegistryFactory : DataLoaderRegistryFactory {
+class KtorDataLoaderRegistryFactory :
+    DataLoaderRegistryFactory {
 
     override fun generate(): DataLoaderRegistry = DataLoaderRegistry().apply {
         register(UniversityDataLoader.dataLoaderName, UniversityDataLoader.getDataLoader())

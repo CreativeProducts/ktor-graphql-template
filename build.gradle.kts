@@ -15,6 +15,7 @@ application {
 val kotlinCoroutinesVersion: String by project
 val ktorVersion: String by project
 val logbackVersion: String by project
+val koinVersion: String by project
 
 dependencies {
     implementation("com.expediagroup:graphql-kotlin-server:5.3.2")
@@ -23,6 +24,15 @@ dependencies {
     implementation("ch.qos.logback", "logback-classic", logbackVersion)
     implementation("org.jetbrains.kotlinx", "kotlinx-coroutines-jdk8", kotlinCoroutinesVersion)
     implementation(kotlin("stdlib-jdk8"))
+
+    // Koin Core features
+    implementation("io.insert-koin:koin-core:$koinVersion")
+    // Koin for Ktor
+    implementation("io.insert-koin:koin-ktor:$koinVersion")
+    // SLF4J Logger
+    implementation("io.insert-koin:koin-logger-slf4j:$koinVersion")
+    // Koin Test features
+    testImplementation("io.insert-koin:koin-test:$koinVersion")
 }
 
 graphql {

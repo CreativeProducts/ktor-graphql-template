@@ -25,10 +25,9 @@ import io.ktor.response.*
  * The Ktor specific code to handle incoming [ApplicationCall]s, send them to GraphQL,
  * and then format and send a correct response back.
  */
-class KtorGraphQLApplicationCallHandler {
+class KtorGraphQLApplicationCallHandler(private val ktorGraphQLServer: KtorGraphQLServer) {
 
     private val mapper = jacksonObjectMapper()
-    private val ktorGraphQLServer = getGraphQLServer(mapper)
 
     /**
      * Handle incoming Ktor Http requests and send them back to the response methods.
