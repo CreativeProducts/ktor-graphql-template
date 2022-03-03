@@ -16,20 +16,11 @@
 
 package com.accenture.creativeproducts.examples.server.schema.query
 
-import com.accenture.creativeproducts.examples.server.schema.models.User
+import com.accenture.creativeproducts.examples.server.schema.models.AuthPayload
+import com.accenture.creativeproducts.examples.server.schema.repository.UserRepository
 import com.expediagroup.graphql.server.operations.Mutation
 
-data class AuthPayload(val token: String? = null, val user: User? = null)
 
-class LoginMutationService : Mutation {
-    suspend fun login(email: String, password: String): AuthPayload {
-        val token = "fake-token"
-        val user = User(
-            email = "fake@site.com",
-            firstName = "Someone",
-            lastName = "You Don't know",
-            universityId = 4
-        )
-        return AuthPayload(token, user)
-    }
+class LoginMutationService(private val userRepository: UserRepository) : Mutation {
+    fun login(email: String, password: String): AuthPayload = userRepository.login(email, password)
 }

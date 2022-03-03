@@ -14,19 +14,13 @@
  * limitations under the License.
  */
 
-package com.accenture.creativeproducts.examples.server.schema.query
+package com.accenture.creativeproducts.examples.server.schema.models
 
-import com.accenture.creativeproducts.examples.server.schema.models.Book
 import com.expediagroup.graphql.generator.annotations.GraphQLDescription
-import com.expediagroup.graphql.server.operations.Query
 
-/**
- * Provide Search options for book data
- */
-class BookQueryService : Query {
-    @GraphQLDescription("Return list of books based on BookSearchParameter options")
-    @Suppress("unused")
-    fun searchBooks(params: BookSearchParameters) = Book.search(params.ids)
-}
-
-data class BookSearchParameters(val ids: List<Int>)
+@GraphQLDescription("A Todo item. Has a title and content")
+data class Todo(
+    val id: Int,
+    val title: String,
+    val content: String,
+)

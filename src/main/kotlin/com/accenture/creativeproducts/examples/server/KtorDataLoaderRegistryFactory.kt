@@ -1,20 +1,17 @@
 package com.accenture.creativeproducts.examples.server
 
-import com.accenture.creativeproducts.examples.server.schema.dataloaders.BookDataLoader
-import com.accenture.creativeproducts.examples.server.schema.dataloaders.CourseDataLoader
-import com.accenture.creativeproducts.examples.server.schema.dataloaders.UniversityDataLoader
 import com.expediagroup.graphql.server.execution.DataLoaderRegistryFactory
+import com.expediagroup.graphql.server.execution.KotlinDataLoader
 import org.dataloader.DataLoaderRegistry
 
 /**
  * Example of how to register the various DataLoaders using [DataLoaderRegistryFactory]
  */
-class KtorDataLoaderRegistryFactory :
-    DataLoaderRegistryFactory {
+class KtorDataLoaderRegistryFactory(
+    private val injectedDataLoaders: List<KotlinDataLoader<*, *>>,
+) : DataLoaderRegistryFactory {
 
     override fun generate(): DataLoaderRegistry = DataLoaderRegistry().apply {
-        register(UniversityDataLoader.dataLoaderName, UniversityDataLoader.getDataLoader())
-        register(CourseDataLoader.dataLoaderName, CourseDataLoader.getDataLoader())
-        register(BookDataLoader.dataLoaderName, BookDataLoader.getDataLoader())
+        injectedDataLoaders.forEach { register(it.dataLoaderName, it.getDataLoader()) }
     }
 }

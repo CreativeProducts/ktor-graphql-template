@@ -30,7 +30,6 @@ class KtorGraphQLContextFactory : GraphQLContextFactory<Nothing, ApplicationRequ
             email = "fake@site.com",
             firstName = "Someone",
             lastName = "You Don't know",
-            universityId = 4
         )
     ).also { map ->
         request.headers["my-custom-header"]?.let { customHeader ->

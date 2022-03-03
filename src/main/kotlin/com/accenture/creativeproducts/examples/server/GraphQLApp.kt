@@ -15,7 +15,9 @@
  */
 package com.accenture.creativeproducts.examples.server
 
+import com.accenture.creativeproducts.examples.server.di.KtorGraphQLSchemaModule
 import com.accenture.creativeproducts.examples.server.di.KtorGraphQlModule
+import com.accenture.creativeproducts.examples.server.di.RepositoriesModule
 import com.expediagroup.graphql.generator.extensions.print
 import graphql.GraphQL
 import io.ktor.application.*
@@ -34,6 +36,7 @@ fun Application.graphQLApp() {
     install(Koin) {
         SLF4JLogger()
         modules(
+            RepositoriesModule,
             KtorGraphQLSchemaModule,
             KtorGraphQlModule,
         )
