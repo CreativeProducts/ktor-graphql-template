@@ -10,7 +10,7 @@ import org.koin.dsl.module
 
 val KtorGraphQlModule = module {
     single { jacksonObjectMapper() }
-    single { KtorGraphQLContextFactory() }
+    single { KtorGraphQLContextFactory(get()) }
     single { KtorDataLoaderRegistryFactory(get()) }
     single { KtorGraphQLRequestParser(get()) }
     single { GraphQLRequestHandler(get(), get()) }

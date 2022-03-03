@@ -4,9 +4,6 @@ import com.accenture.creativeproducts.examples.server.schema.repository.TodoRepo
 import com.expediagroup.graphql.generator.annotations.GraphQLDescription
 import com.expediagroup.graphql.server.operations.Query
 
-/**
- * Provide Search options for book data
- */
 class TodoQueryService(
     private val todoRepository: TodoRepository,
 ) : Query {

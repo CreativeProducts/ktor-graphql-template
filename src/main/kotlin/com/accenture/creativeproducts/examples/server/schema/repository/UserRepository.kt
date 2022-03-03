@@ -11,13 +11,20 @@ class UserRepository {
             lastName = "Testlast",
         ),
         User(
-            email = "test@test.com",
-            firstName = "Someone",
-            lastName = "You Don't know",
+            email = "test2@test.com",
+            firstName = "Test 2",
+            lastName = "Testlast 2",
         ),
     )
 
+    private val tokensMap = mapOf(
+        "fake-token" to users.first { it.email == "test@test.com" }
+    )
+
     fun findByEmails(emails: List<String>) = users.filter { it.email in emails }
+
+    fun findByToken(token: String) =
+        tokensMap[token]
 
     fun login(email: String, password: String): AuthPayload {
         val user = users.find { it.email == email }
@@ -26,6 +33,8 @@ class UserRepository {
             return AuthPayload(token, user)
         } else throw LoginException()
     }
+
+    fun findByEmail(email: String) = users.find { it.email == email }
 }
 
 class LoginException : Exception("Login credentials incorrect")

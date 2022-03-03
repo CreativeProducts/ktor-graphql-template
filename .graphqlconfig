@@ -3,10 +3,18 @@
   "schemaPath": "schema.graphql",
   "extensions": {
     "endpoints": {
-      "Default GraphQL Endpoint": {
+      "Unlogged GraphQL Endpoint": {
         "url": "http://localhost:8080/graphql",
         "headers": {
           "user-agent": "JS GraphQL"
+        },
+        "introspect": false
+      },
+      "Logged-in GraphQL Endpoint": {
+        "url": "http://localhost:8080/graphql",
+        "headers": {
+          "user-agent": "JS GraphQL",
+          "x-token": "fake-token"
         },
         "introspect": false
       }

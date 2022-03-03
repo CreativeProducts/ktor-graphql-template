@@ -20,6 +20,7 @@ import com.accenture.creativeproducts.examples.server.schema.dataloader.TodoData
 import com.accenture.creativeproducts.examples.server.schema.dataloader.UserDataLoader
 import com.accenture.creativeproducts.examples.server.schema.query.LoginMutationService
 import com.accenture.creativeproducts.examples.server.schema.query.TodoQueryService
+import com.accenture.creativeproducts.examples.server.schema.query.UserQueryService
 import com.expediagroup.graphql.generator.SchemaGeneratorConfig
 import com.expediagroup.graphql.generator.TopLevelObject
 import com.expediagroup.graphql.generator.toSchema
@@ -53,6 +54,7 @@ val KtorGraphQLSchemaModule = module {
     single(qualifier = Qualifiers.queries) {
         listOf(
             TodoQueryService(get()),
+            UserQueryService(get()),
         )
     }
     single(qualifier = Qualifiers.mutations) {

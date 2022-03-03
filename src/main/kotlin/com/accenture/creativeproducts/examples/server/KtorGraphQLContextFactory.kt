@@ -1,41 +1,29 @@
-/*
- * Copyright 2022 Expedia, Inc
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package com.accenture.creativeproducts.examples.server
 
-import com.accenture.creativeproducts.examples.server.schema.models.User
+import com.accenture.creativeproducts.examples.server.schema.repository.UserRepository
 import com.expediagroup.graphql.server.execution.GraphQLContextFactory
+import graphql.GraphQLContext
 import io.ktor.request.*
 
 /**
- * Custom logic for how this example app should create its context given the [ApplicationRequest]
+ * Creates a context based on the request
  */
-class KtorGraphQLContextFactory : GraphQLContextFactory<Nothing, ApplicationRequest> {
+class KtorGraphQLContextFactory(
+    private val userRepository: UserRepository,
+) : GraphQLContextFactory<Nothing, ApplicationRequest> {
 
-    override suspend fun generateContextMap(request: ApplicationRequest): Map<Any, Any> = mutableMapOf<Any, Any>(
-        "user" to User(
-            email = "fake@site.com",
-            firstName = "Someone",
-            lastName = "You Don't know",
-        )
-    ).also { map ->
-        request.headers["my-custom-header"]?.let { customHeader ->
-            map["customHeader"] = customHeader
+    override suspend fun generateContextMap(request: ApplicationRequest): Map<String, Any> = buildMap {
+        val currentUser = request.headers["x-token"]?.let { token ->
+            userRepository.findByToken(token)?.email
+        }
+
+        if (currentUser != null) {
+            put(CURRENT_USER_EMAIL, currentUser)
         }
     }
 
     override suspend fun generateContext(request: ApplicationRequest): Nothing? = null
 }
+
+private const val CURRENT_USER_EMAIL = "currentUserEmail"
+val GraphQLContext.currentUserEmail: String get() = get(CURRENT_USER_EMAIL)
