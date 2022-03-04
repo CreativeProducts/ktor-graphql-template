@@ -26,4 +26,4 @@ class KtorGraphQLContextFactory(
 }
 
 private const val CURRENT_USER_EMAIL = "currentUserEmail"
-val GraphQLContext.currentUserEmail: String get() = get(CURRENT_USER_EMAIL)
+val GraphQLContext.currentUserEmail: String? get() = get(CURRENT_USER_EMAIL)
