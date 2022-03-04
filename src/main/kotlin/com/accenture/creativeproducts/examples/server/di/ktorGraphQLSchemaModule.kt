@@ -16,10 +16,10 @@
 
 package com.accenture.creativeproducts.examples.server.di
 
-import com.accenture.creativeproducts.examples.server.data.todo.TodoDataLoader
-import com.accenture.creativeproducts.examples.server.data.user.UserDataLoader
 import com.accenture.creativeproducts.examples.server.data.login.LoginMutationService
+import com.accenture.creativeproducts.examples.server.data.todo.TodoDataLoader
 import com.accenture.creativeproducts.examples.server.data.todo.TodoQueryService
+import com.accenture.creativeproducts.examples.server.data.user.UserDataLoader
 import com.accenture.creativeproducts.examples.server.data.user.UserQueryService
 import com.expediagroup.graphql.generator.SchemaGeneratorConfig
 import com.expediagroup.graphql.generator.TopLevelObject
