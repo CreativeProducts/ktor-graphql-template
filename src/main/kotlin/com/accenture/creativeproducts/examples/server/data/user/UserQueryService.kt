@@ -1,8 +1,6 @@
-package com.accenture.creativeproducts.examples.server.schema.query
+package com.accenture.creativeproducts.examples.server.data.user
 
 import com.accenture.creativeproducts.examples.server.currentUserEmail
-import com.accenture.creativeproducts.examples.server.schema.models.User
-import com.accenture.creativeproducts.examples.server.schema.repository.UserRepository
 import com.expediagroup.graphql.generator.annotations.GraphQLDescription
 import com.expediagroup.graphql.server.operations.Query
 import graphql.schema.DataFetchingEnvironment

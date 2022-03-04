@@ -1,7 +1,5 @@
-package com.accenture.creativeproducts.examples.server.schema.dataloader
+package com.accenture.creativeproducts.examples.server.data.user
 
-import com.accenture.creativeproducts.examples.server.schema.models.User
-import com.accenture.creativeproducts.examples.server.schema.repository.UserRepository
 import com.expediagroup.graphql.server.execution.KotlinDataLoader
 import kotlinx.coroutines.runBlocking
 import org.dataloader.DataLoader

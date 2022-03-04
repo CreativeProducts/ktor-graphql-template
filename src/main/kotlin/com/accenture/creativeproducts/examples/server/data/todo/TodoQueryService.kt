@@ -1,6 +1,5 @@
-package com.accenture.creativeproducts.examples.server.schema.query
+package com.accenture.creativeproducts.examples.server.data.todo
 
-import com.accenture.creativeproducts.examples.server.schema.repository.TodoRepository
 import com.expediagroup.graphql.generator.annotations.GraphQLDescription
 import com.expediagroup.graphql.server.operations.Query
 

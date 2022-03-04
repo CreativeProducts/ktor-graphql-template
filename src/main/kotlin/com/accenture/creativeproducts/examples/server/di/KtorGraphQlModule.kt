@@ -1,8 +1,6 @@
 package com.accenture.creativeproducts.examples.server.di
 
 import com.accenture.creativeproducts.examples.server.*
-import com.accenture.creativeproducts.examples.server.schema.dataloader.TodoDataLoader
-import com.accenture.creativeproducts.examples.server.schema.dataloader.UserDataLoader
 import com.expediagroup.graphql.server.execution.DataLoaderRegistryFactory
 import com.expediagroup.graphql.server.execution.GraphQLRequestHandler
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper

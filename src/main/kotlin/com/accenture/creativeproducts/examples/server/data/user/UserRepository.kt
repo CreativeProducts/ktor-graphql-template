@@ -1,7 +1,6 @@
-package com.accenture.creativeproducts.examples.server.schema.repository
+package com.accenture.creativeproducts.examples.server.data.user
 
-import com.accenture.creativeproducts.examples.server.schema.models.AuthPayload
-import com.accenture.creativeproducts.examples.server.schema.models.User
+import com.accenture.creativeproducts.examples.server.data.login.AuthPayload
 
 class UserRepository {
     private val users = listOf(

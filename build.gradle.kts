@@ -37,7 +37,7 @@ dependencies {
 
 graphql {
     schema {
-        packages = listOf("com.expediagroup.graphql.examples.server.ktor")
+        packages = listOf("com.accenture.creativeproducts.examples.server.data")
     }
 }
 repositories {

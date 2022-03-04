@@ -1,6 +1,6 @@
 package com.accenture.creativeproducts.examples.server
 
-import com.accenture.creativeproducts.examples.server.schema.repository.UserRepository
+import com.accenture.creativeproducts.examples.server.data.user.UserRepository
 import com.expediagroup.graphql.server.execution.GraphQLContextFactory
 import graphql.GraphQLContext
 import io.ktor.request.*

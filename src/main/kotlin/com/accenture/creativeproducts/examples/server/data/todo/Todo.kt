@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.accenture.creativeproducts.examples.server.schema.models
+package com.accenture.creativeproducts.examples.server.data.todo
 
 import com.expediagroup.graphql.generator.annotations.GraphQLDescription
 

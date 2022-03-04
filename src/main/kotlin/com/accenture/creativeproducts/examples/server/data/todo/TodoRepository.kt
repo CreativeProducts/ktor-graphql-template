@@ -1,6 +1,4 @@
-package com.accenture.creativeproducts.examples.server.schema.repository
-
-import com.accenture.creativeproducts.examples.server.schema.models.Todo
+package com.accenture.creativeproducts.examples.server.data.todo
 
 class TodoRepository {
     private val todos = listOf(
