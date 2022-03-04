@@ -18,7 +18,7 @@ Start the server by running `Application.kt` directly from your IDE. (Make sure 
 Alternatively, you can start the server using Gradle.
 
 ```bash
-cd /path/to/graphql-kotlin/examples
+cd /path/to/ktor-graphql-template
 ./gradlew ktor-server:run
 ```
 
