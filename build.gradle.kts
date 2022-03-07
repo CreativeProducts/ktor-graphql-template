@@ -12,27 +12,22 @@ application {
     mainClass.set("io.ktor.server.netty.EngineMain")
 }
 
-val kotlinCoroutinesVersion: String by project
-val ktorVersion: String by project
-val logbackVersion: String by project
 val koinVersion: String by project
 
 dependencies {
-    implementation("com.expediagroup:graphql-kotlin-server:5.3.2")
-    implementation("io.ktor", "ktor-server-core", ktorVersion)
-    implementation("io.ktor", "ktor-server-netty", ktorVersion)
-    implementation("ch.qos.logback", "logback-classic", logbackVersion)
-    implementation("org.jetbrains.kotlinx", "kotlinx-coroutines-jdk8", kotlinCoroutinesVersion)
+    implementation(libs.graphqlKotlinServer)
+    implementation(libs.ktor.server.core)
+    implementation(libs.ktor.server.netty)
+    implementation(libs.logback)
+    implementation(libs.kotlinx.coroutines)
     implementation(kotlin("stdlib-jdk8"))
 
     // Koin Core features
-    implementation("io.insert-koin:koin-core:$koinVersion")
+    implementation(libs.koin.core)
     // Koin for Ktor
-    implementation("io.insert-koin:koin-ktor:$koinVersion")
-    // SLF4J Logger
-    implementation("io.insert-koin:koin-logger-slf4j:$koinVersion")
-    // Koin Test features
-    testImplementation("io.insert-koin:koin-test:$koinVersion")
+    implementation(libs.koin.ktor)
+    implementation(libs.koin.slf4j)
+    testImplementation(libs.koin.test)
 }
 
 graphql {

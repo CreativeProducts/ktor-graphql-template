@@ -1,0 +1,23 @@
+[versions]
+kotlin = "1.6.20-RC"
+kotlinCoroutines = "1.6.0"
+
+ktor = "1.6.3"
+slf4j = "1.7.33"
+koin = "3.2.0-beta-1"
+
+junit = "5.8.2"
+
+logback = "1.2.1"
+graphqlKotlinServer = "5.3.2"
+
+[libraries]
+graphqlKotlinServer = { module = "com.expediagroup:graphql-kotlin-server", version.ref = "graphqlKotlinServer" }
+ktor-server-core = { module = "io.ktor:ktor-server-core", version.ref = "ktor" }
+ktor-server-netty = { module = "io.ktor:ktor-server-netty", version.ref = "ktor" }
+logback = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
+kotlinx-coroutines = {module = "org.jetbrains.kotlinx:kotlinx-coroutines-jdk8", version.ref="kotlinCoroutines"}
+koin-core = {module = "io.insert-koin:koin-core", version.ref = "koin"}
+koin-ktor = {module = "io.insert-koin:koin-ktor", version.ref = "koin"}
+koin-slf4j = {module = "io.insert-koin:koin-logger-slf4j", version.ref = "koin"}
+koin-test = {module = "io.insert-koin:koin-test", version.ref = "koin"}
