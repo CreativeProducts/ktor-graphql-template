@@ -16,8 +16,8 @@ graphqlKotlinServer = { module = "com.expediagroup:graphql-kotlin-server", versi
 ktor-server-core = { module = "io.ktor:ktor-server-core", version.ref = "ktor" }
 ktor-server-netty = { module = "io.ktor:ktor-server-netty", version.ref = "ktor" }
 logback = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
-kotlinx-coroutines = {module = "org.jetbrains.kotlinx:kotlinx-coroutines-jdk8", version.ref="kotlinCoroutines"}
-koin-core = {module = "io.insert-koin:koin-core", version.ref = "koin"}
-koin-ktor = {module = "io.insert-koin:koin-ktor", version.ref = "koin"}
-koin-slf4j = {module = "io.insert-koin:koin-logger-slf4j", version.ref = "koin"}
-koin-test = {module = "io.insert-koin:koin-test", version.ref = "koin"}
+kotlinx-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-jdk8", version.ref = "kotlinCoroutines" }
+koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
+koin-ktor = { module = "io.insert-koin:koin-ktor", version.ref = "koin" }
+koin-slf4j = { module = "io.insert-koin:koin-logger-slf4j", version.ref = "koin" }
+koin-test = { module = "io.insert-koin:koin-test", version.ref = "koin" }
