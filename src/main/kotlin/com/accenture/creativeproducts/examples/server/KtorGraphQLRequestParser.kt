@@ -1,5 +1,6 @@
 /*
  * Copyright 2021 Expedia, Inc
+ * Copyright 2022 Creative Products and contributors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +27,7 @@ import java.io.IOException
  * Custom logic for how Ktor parses the incoming [ApplicationRequest] into the [GraphQLServerRequest]
  */
 class KtorGraphQLRequestParser(
-    private val mapper: ObjectMapper
+    private val mapper: ObjectMapper,
 ) : GraphQLRequestParser<ApplicationRequest> {
 
     @Suppress("BlockingMethodInNonBlockingContext")
